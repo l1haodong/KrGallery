@@ -118,7 +118,13 @@ public class PhotoAlbumPickerActivity extends BaseFragment
         actionBar.setBackgroundColor(Theme.ACTION_BAR_MEDIA_PICKER_COLOR);
         actionBar.setItemsBackgroundColor(Theme.ACTION_BAR_PICKER_SELECTOR_COLOR);
         // actionBar.setBackButtonImage(R.drawable.ic_ab_back);
-        actionBar.setBackText(context.getString(R.string.Cancel));
+        
+        if (!singlePhoto)
+        {
+            //actionBar.setBackButtonImage(R.drawable.ic_ab_back);
+            actionBar.setBackText(context.getString(R.string.Cancel));
+        }
+        
         actionBar.setActionBarMenuOnItemClick(new ActionBar.ActionBarMenuOnItemClick() {
             @Override
             public void onItemClick(int id) {

@@ -144,26 +144,28 @@ public class PhotoPickerActivity extends BaseFragment
                 }
             }
         });
+        if (!singlePhoto)
+        {
+                ActionBarMenu menu = actionBar.createMenu();
 
-        ActionBarMenu menu = actionBar.createMenu();
-
-        TextView cancel = new TextView(context);
-        LinearLayout.LayoutParams cancelParams = LayoutHelper
-                .createLinear(LayoutHelper.WRAP_CONTENT, -1);
-        cancel.setTextSize(18);
-        cancel.setText(R.string.Cancel);
-        cancel.setTextColor(0xffffffff);
-        cancel.setGravity(Gravity.RIGHT | Gravity.CENTER_VERTICAL);
-        cancelParams.setMargins(0, 0, AndroidUtilities.dp(8), 0);
-        cancel.setLayoutParams(cancelParams);
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finishFragment();
-                delegate.actionButtonPressed(true);
-            }
-        });
-        menu.addView(cancel);
+                TextView cancel = new TextView(context);
+                LinearLayout.LayoutParams cancelParams = LayoutHelper
+                        .createLinear(LayoutHelper.WRAP_CONTENT, -1);
+                cancel.setTextSize(18);
+                cancel.setText(R.string.Cancel);
+                cancel.setTextColor(0xffffffff);
+                cancel.setGravity(Gravity.RIGHT | Gravity.CENTER_VERTICAL);
+                cancelParams.setMargins(0, 0, AndroidUtilities.dp(8), 0);
+                cancel.setLayoutParams(cancelParams);
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finishFragment();
+                        delegate.actionButtonPressed(true);
+                    }
+                });
+                menu.addView(cancel);
+        }
 
         if (selectedAlbum == null) {
             if (type == 0) {
